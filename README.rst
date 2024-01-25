@@ -50,7 +50,6 @@ The sequence of operation is:
 1.	Mount the module securely on the vehicle whose acceleration is to be measured.
 2.	If necessary, connect to **KookaIDE** or **Thonny** to edit the key recording parameters in the script.
 
-.. code:: python
    # Initial conditions
    DURATION = 5 # The logging duration in seconds
    PERIOD = 10 # The period between samples in milliseconds
