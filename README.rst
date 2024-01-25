@@ -51,9 +51,13 @@ The sequence of operation is:
 2.	If necessary, connect to **KookaIDE** or **Thonny** to edit the key recording parameters in the script.
 
    # Initial conditions
+
    DURATION = 5 # The logging duration in seconds
+
    PERIOD = 10 # The period between samples in milliseconds
+
    THRESHOLD = 20 # The threshold acceleration in m/sec^2 which initiates logging when armed
+
    PRESAMPLES = 10 # The number of samples retained prior to reaching the recording threshhold
 
 
@@ -85,7 +89,9 @@ When edited, resave to the /app folder on the module.
 6.	Launch the vehicle.  
     
     Recording of acceleration will commence as soon as the threshold acceleration, in any direction, is detected. 
+
     The Orange LED will blink during recording.
+
     After the programmed duration recording stops and both Red and Orange LEDs will be on.
 
 7.	If desired, rearm the module by pressing the white button and relaunch the vehicle.
@@ -93,7 +99,9 @@ When edited, resave to the /app folder on the module.
 9.	Connect the module to a PC via the USB-C connector and copy the desired files to your PC for inspection and processing.	
     
     The files on the module should now be visible.
+
     Copy the AccelLog-nnn.csv files to your PC for processing by a spreadsheet program.  
+    
     It is not recommended that you open them directly on the module as it doesn’t have much space and your work could be lost.
 
 
