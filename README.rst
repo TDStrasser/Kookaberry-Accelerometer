@@ -4,7 +4,7 @@ Kookaberry Accelerometer Module
 The accelerometer module is a lightweight circuit board, using a subset of **Kookaberry** hardware and **Kookaberry** firmware, 
 and is intended to be mounted on a moving vehicle to measure and record its acceleration in high resolution over short periods.
 
-What is Acceleration? <file://docs/What-is-Acceleration>
+`What is Acceleration? <file://docs/What-is-Acceleration>_`
 
 Typical STEM applications include the Reengineering Australia (REA) Formula 1 model race vehicles, ballistic rockets, bouncing balls, pendulums, 
 free-fall devices etc.  In short, on anything that is propelled or moved where it is desirable to record its acceleration.
