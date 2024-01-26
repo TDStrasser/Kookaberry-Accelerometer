@@ -168,3 +168,11 @@ and then insert a scatter plot from among the **Recommended Charts**.
     :scale: 30%
 
     Y acceleration vs time scatter graph
+
+
+.. copyright::
+
+    **Kookaberry** and **Kooka** are trademarks of Kookaberry Pty Ltd, Australia.
+
+    The Kooka Firmware and KookaSuite were created by Damien George (George Electronics Pty Ltd – MicroPython) 
+    in collaboration with Kookaberry Pty Ltd and the AustSTEM Foundation Ltd.
