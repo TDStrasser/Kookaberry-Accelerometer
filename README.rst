@@ -43,7 +43,7 @@ The Accelerometer Module is shown in the figures below.  Its key properties are:
 Software
 --------
 
-The Accelerometer Module comes pre-loaded with the Kookaberry firmware and AustSTEM’s AccelLog.py script which activates as soon as the power is turned on. 
+The Accelerometer Module comes pre-loaded with the **Kookaberry** firmware and AustSTEM’s AccelLog.py script which activates as soon as the power is turned on. 
 
 AccelLog MicroPython Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,16 +52,17 @@ This script may be updated from time to time and will be available on this GitHu
 
 To update the script, go to the code folder on this site, and download the following files to the accelerator module:
 
-* main.py - download to the **Kookaberry**'s root folder. This file starts the AccelLog.py script on startup or reset.
-* AccelLog.py - download to the **Kookaberry**'s app folder
+* `main.py <code/main.py>`_ - download to the **Kookaberry**'s root folder. This file starts the AccelLog.py script on startup or reset.
+* `AccelLog.py <code/app/AccelLog.py>`_ - download to the **Kookaberry**'s app folder
 
 Kookaberry Firmware
 ~~~~~~~~~~~~~~~~~~~
 
-To obtain or update the Kookaberry firmware, go to https://github.com/kookaberry/kooka-releases/releases.
+To obtain or update the **Kookaberry** firmware, go to https://github.com/kookaberry/kooka-releases.
 
-Download the firmware for the RP2040 and follow the instructions on https://github.com/kookaberry/kooka-releases to install it.
-To update the firmware only requires downloading the kooka_rp2040.bin file to the **Kookaberry**'s root folder and then repowering the module.
+Download the firmware for the RP2040 and follow the instructions to install it.
+To update the firmware only requires downloading the `kooka_rp2040.bin <https://github.com/kookaberry/kooka-releases/blob/master/firmware/rp2040/kooka_rp2040.bin>`_ 
+file to the **Kookaberry**'s root folder and then repowering the module.
 A blue LED will then flash as the firmware is updated.
 
 Operation
