@@ -130,6 +130,8 @@ When edited, resave to the /app folder on the module.
 
 10.	Though there is ample space for more CSV files, it is good practice to delete the AccelLog CSV files occasionally to conserve file space.
 11.	Leave the module plugged into the PC (when on) or a USB recharger for an hour or two so that its battery recharges.
+12. Please eject the **Kookaberry** USB drive using the PC's operating system before unplugging the **Kookaberry** from the USB connector 
+    to avoid damaging the files stored on the **Kookaberry**'s file storage system.
 
 
 
