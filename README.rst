@@ -58,7 +58,11 @@ To update the script, go to the code folder on this site, and download the follo
 Kookaberry Firmware
 ~~~~~~~~~~~~~~~~~~~
 
-To obtain or update the Kookaberry firmware, go to https://github.com/kookaberry/kooka-releases/releases and follow the instructions there.
+To obtain or update the Kookaberry firmware, go to https://github.com/kookaberry/kooka-releases/releases.
+
+Download the firmware for the RP2040 and follow the instructions on https://github.com/kookaberry/kooka-releases to install it.
+To update the firmware only requires downloading the kooka_rp2040.bin file to the **Kookaberry**'s root folder and then repowering the module.
+A blue LED will then flash as the firmware is updated.
 
 Operation
 ---------
