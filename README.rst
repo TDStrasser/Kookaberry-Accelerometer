@@ -1,13 +1,11 @@
 Kookaberry Accelerometer Module
-======================================
+===============================
 
 The accelerometer module is a lightweight circuit board, using a subset of **Kookaberry** hardware and **Kookaberry** firmware, 
 and is intended to be mounted on a moving vehicle to measure and record its acceleration in high resolution over short periods.
 
 Typical STEM applications include the Reengineering Australia (REA) Formula 1 model race vehicles, ballistic rockets, bouncing balls, pendulums, 
-free-fall devices etc.  
-
-In short, on anything that is propelled or moved where it is desirable to record its acceleration.
+free-fall devices etc.  In short, on anything that is propelled or moved where it is desirable to record its acceleration.
 
 The mass (weight) of the circuit board has been minimised so that it does not overly reduce  acceleration.
 
@@ -40,10 +38,28 @@ The Accelerometer Module is shown in the figures below.  Its key properties are:
 
     Accelerometer Module rear
 
+Software
+--------
+
+The Accelerometer Module comes pre-loaded with the Kookaberry firmware and AustSTEM’s AccelLog.py script which activates as soon as the power is turned on. 
+
+AccelLog MicroPython Script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This script may be updated from time to time and will be available on this GitHub page.
+
+To update the script, go to the code folder on this site, and download the following files to the accelerator module:
+
+* main.py - download to the **Kookaberry**'s root folder. This file starts the AccelLog.py script on startup or reset.
+* AccelLog.py - download to the **Kookaberry**'s app folder
+
+Kookaberry Firmware
+~~~~~~~~~~~~~~~~~~~
+
+To obtain or update the Kookaberry firmware, go to https://github.com/kookaberry/kooka-releases/releases and follow the instructions there.
+
 Operation
 ---------
-
-The Accelerometer Module comes pre-loaded with AustSTEM’s AccelLog.py script which activates as soon as the power is turned on.  
 
 The sequence of operation is:
 
@@ -64,8 +80,8 @@ The sequence of operation is:
 When edited, resave to the /app folder on the module.
 
 
-3.  Place the vehicle on its launch position.
-4.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
+1.  Place the vehicle on its launch position.
+2.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
    
 
 .. _mready:
@@ -101,7 +117,7 @@ When edited, resave to the /app folder on the module.
     The files on the module should now be visible.
 
     Copy the AccelLog-nnn.csv files to your PC for processing by a spreadsheet program.  
-    
+
     It is not recommended that you open them directly on the module as it doesn’t have much space and your work could be lost.
 
 
@@ -114,9 +130,32 @@ Data Analysis
 -------------
 
 The module will have stored a file called AccelLog-nnn.csv where nnn is an ascending integer corresponding to the recording run (ie. 001, 002, 003 etc).
-Data recorded is in a format easily interpreted by a spreadsheet program and includedes:
+Data recorded is in a format easily interpreted by a spreadsheet program and includes:
 
 •	Milliseconds since beginning of recording run
 •	X acceleration in m/sec^2
 •	Y acceleration
 •	Z acceleration
+
+The typical content of the CSV file is shown below:
+
+
+.. csvfile:
+.. figure:: images/csv-file.png
+    :align: center
+    :scale: 30%
+
+    Typical contents of the AccelLog-nnn.csv file
+
+Open the file with a spreadsheet program such as Microsoft Excel or Google Sheets.
+
+Select the data items you wish to graph, typically the ``Time-ms`` column on the x-axis, and the ``Y_Acc-m/sec2`` column on the y-axis 
+and then insert a scatter plot from among the **Recommended Charts**.
+
+
+.. csvfile:
+.. figure:: images/csv-graph.png
+    :align: center
+    :scale: 30%
+
+    Y acceleration vs time scatter graph
