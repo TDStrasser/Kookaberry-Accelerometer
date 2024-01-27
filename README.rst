@@ -6,7 +6,7 @@ and is intended to be mounted on a moving vehicle to measure and record its acce
 
 `What is Acceleration? <docs/What-is-Acceleration.pdf>`_
 
-Typical STEM applications include the Reengineering Australia (REA) Formula 1 model race vehicles, ballistic rockets, bouncing balls, pendulums, 
+Typical STEM applications include the `Reengineering Australia (REA) Formula 1 <https://rea.org.au/f1-in-schools/>`_ model race vehicles, ballistic rockets, bouncing balls, pendulums, 
 free-fall devices etc.  In short, on anything that is propelled or moved where it is desirable to record its acceleration.
 
 The mass (weight) of the circuit board has been minimised so that it does not overly reduce  acceleration.
@@ -195,4 +195,4 @@ Copyright
 **Kookaberry** and **Kooka** are trademarks of Kookaberry Pty Ltd, Australia.
 
 The **Kooka Firmware** and **KookaSuite** were created by Damien George (George Electronics Pty Ltd – MicroPython) 
-in collaboration with Kookaberry Pty Ltd and the AustSTEM Foundation Ltd.
+in collaboration with Kookaberry Pty Ltd and the `AustSTEM Foundation Ltd <https://auststem.com.au>`_.
