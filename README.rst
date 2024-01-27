@@ -48,7 +48,41 @@ The Accelerometer Module comes pre-loaded with the **Kookaberry** firmware and A
 AccelLog MicroPython Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The AccelLog.py script measures and logs 3-axis acceleratins using the built-in accelerometer.
+
+The script starts and waits to be armed with the ORANGE LED ``ON``.
+
+Press the button to arm the logger - the ORANGE LED is ``OFF`` and the RED LED is ``ON``
+
+When armed the logger waits for high acceleration in any direction. 
+
+When triggered, acceleration is logged, by default, at 10mS intervals for 5 seconds. 
+The RED LED blinks during logging.  
+
+The default parameters can be altered by editing the key parameters at the beginning of the script.  
+Any MicroPython editor, particularly **KookaIDE** or **Thonny**, or even a simple text editor can be used.
+
+The key parameters are:
+
+   # Initial conditions
+
+   DURATION = 5 # The logging duration in seconds
+
+   PERIOD = 10 # The period between samples in milliseconds
+
+   THRESHOLD = 20 # The threshold acceleration in m/sec^2 which initiates logging when armed
+
+   PRESAMPLES = 10 # The number of samples retained prior to reaching the recording threshhold
+
+
+When editing is completed, resave to the /app folder on the **Kookaberry Accelerometer Mmodule**.
+
+The script creates sequentially named files for each run in the form AccelLog-nnn.CSV wher nnn is the run number.
+
 This script may be updated from time to time and will be available on this GitHub page.
+
+Updates
+!!!!!!!
 
 To update the script, go to the code folder on this site, and download the following files to the accelerator module:
 
@@ -71,24 +105,8 @@ Operation
 The sequence of operation is:
 
 1.	Mount the module securely on the vehicle whose acceleration is to be measured.
-2.	If necessary, connect to **KookaIDE** or **Thonny** to edit the key recording parameters in the script.
-
-   # Initial conditions
-
-   DURATION = 5 # The logging duration in seconds
-
-   PERIOD = 10 # The period between samples in milliseconds
-
-   THRESHOLD = 20 # The threshold acceleration in m/sec^2 which initiates logging when armed
-
-   PRESAMPLES = 10 # The number of samples retained prior to reaching the recording threshhold
-
-
-When edited, resave to the /app folder on the module.
-
-
-1.  Place the vehicle on its launch position.
-2.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
+2.	Place the vehicle on its launch position.
+3.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
    
 
 .. _mready:
@@ -98,7 +116,8 @@ When edited, resave to the /app folder on the module.
 
     Accelerometer Module ready - red LED is on
 
-5.	Push the white button to arm the program to record acceleration.  The Red LED will go off and the Orange LED will go on.
+
+4.	Push the white button to arm the program to record acceleration.  The Red LED will go off and the Orange LED will go on.
 
 
 .. _marmed:
@@ -109,7 +128,7 @@ When edited, resave to the /app folder on the module.
     Accelerometer Module armed - orange LED is on
 
 
-6.	Launch the vehicle.  
+5.	Launch the vehicle.  
     
     Recording of acceleration will commence as soon as the threshold acceleration, in any direction, is detected. 
 
@@ -117,9 +136,9 @@ When edited, resave to the /app folder on the module.
 
     After the programmed duration recording stops and both Red and Orange LEDs will be on.
 
-7.	If desired, rearm the module by pressing the white button and relaunch the vehicle.
-8.	When finished, switch the power off by moving the jumper to the upper position.
-9.	Connect the module to a PC via the USB-C connector and copy the desired files to your PC for inspection and processing.	
+6.	If desired, rearm the module by pressing the white button and relaunch the vehicle.
+7.	When finished, switch the power off by moving the jumper to the upper position.
+8.	Connect the module to a PC via the USB-C connector and copy the desired files to your PC for inspection and processing.	
     
     The files on the module should now be visible.
 
@@ -128,9 +147,9 @@ When edited, resave to the /app folder on the module.
     It is not recommended that you open them directly on the module as it doesn’t have much space and your work could be lost.
 
 
-10.	Though there is ample space for more CSV files, it is good practice to delete the AccelLog CSV files occasionally to conserve file space.
-11.	Leave the module plugged into the PC (when on) or a USB recharger for an hour or two so that its battery recharges.
-12. Please eject the **Kookaberry** USB drive using the PC's operating system before unplugging the **Kookaberry** from the USB connector 
+9.	Though there is ample space for more CSV files, it is good practice to delete the AccelLog CSV files occasionally to conserve file space.
+10.	Leave the module plugged into the PC (when on) or a USB recharger for an hour or two so that its battery recharges.
+11. Please eject the **Kookaberry** USB drive using the PC's operating system before unplugging the **Kookaberry** from the USB connector 
     to avoid damaging the files stored on the **Kookaberry**'s file storage system.
 
 
