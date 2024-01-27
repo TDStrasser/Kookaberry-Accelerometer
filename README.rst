@@ -75,7 +75,7 @@ The key parameters are:
    PRESAMPLES = 10 # The number of samples retained prior to reaching the recording threshhold
 
 
-When editing is completed, resave to the /app folder on the **Kookaberry Accelerometer Mmodule**.
+When editing is completed, resave to the /app folder on the **Kookaberry Accelerometer Module**.
 
 The script creates sequentially named files for each run in the form AccelLog-nnn.CSV wher nnn is the run number.
 
