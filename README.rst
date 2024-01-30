@@ -13,8 +13,8 @@ free-fall devices etc.  In short, on anything that is propelled or moved where i
 
 The mass (weight) of the circuit board has been minimised so that it does not overly reduce  acceleration.
 
-The rechargeable battery is soldered onto the board and thereby does not constitute hazard to small children. 
-Nevertheless, the module should not be within reach of or handled by small children.
+The rechargeable battery is soldered onto the board and thereby does not constitute a hazard to small children. 
+Nevertheless, the module should not be within reach of, or handled by, small children.
 
 Description
 -----------
@@ -24,10 +24,10 @@ The Accelerometer Module is shown in the figures below.  Its key properties are:
 •	Dimensions: 60mm L x 26mm W x 12mm H (inclusive of jumpers)
 •	Weight: 10 grams (inclusive of battery)
 •	Power: soldered-in rechargeable 3.6V battery recharged via USB-C connector. 
-•	Power Switch: Jumpers next to battery - On – jumper in lower position; Off – jumper in upper
+•	Power Switch: jumpers next to battery - On – jumper in lower position; Off – jumper in upper
 •	Computing: Raspberry Pi RP2040 microcomputer and LSM303 3-axis accelerometer
 •	File Storage: 3.5 Mbytes accessible by plugging into a PC in the same way as a USB-C removable memory stick
-•	Programmable User Interface: Pushbutton (SW1), Orange LED (LD1), Red LED (LD2)
+•	Programmable User Interface: pushbutton (SW1), Orange LED (LD1), Red LED (LD2)
 •	Programming: **KookaSuite** (**KookaBlockly**, **MicroPython**) or **Thonny** (MicroPython) via USB-C.
 
 .. _mfront:
@@ -55,7 +55,7 @@ AccelLog MicroPython Script
 
 The AccelLog.py script measures and logs 3-axis accelerations using the built-in accelerometer.
 
-The default parameters can be altered by editing the key parameters at the beginning of the script.  
+The default parameters can be altered by editing the beginning of the script, as shown below.  
 Any MicroPython editor, particularly **KookaIDE** or **Thonny**, or even a simple text editor can be used.
 
 The key parameters are:
@@ -91,9 +91,9 @@ Kookaberry Firmware
 To obtain or update the **Kookaberry** firmware, go to https://github.com/kookaberry/kooka-releases.
 
 Download the firmware for the RP2040 and follow the instructions to install it.
-To update the firmware only requires downloading the `kooka_rp2040.bin <https://github.com/kookaberry/kooka-releases/blob/master/firmware/rp2040/kooka_rp2040.bin>`_ 
+Updating the firmware only requires downloading the `kooka_rp2040.bin <https://github.com/kookaberry/kooka-releases/blob/master/firmware/rp2040/kooka_rp2040.bin>`_ 
 file to the **Kookaberry**'s root folder and then repowering the module.
-A blue LED will then flash as the firmware is updated.
+A Blue LED will then flash as the firmware is updated. Do not unplug the module while the Blue LED is flashing.
 
 Operation
 ---------
@@ -103,7 +103,7 @@ The sequence of operation is:
 1.	Mount the module securely on the vehicle whose acceleration is to be measured.  
     The module's mounting must be strong enough to prevent it moving around or off the vehicle when acceleration occurs.
 2.	Place the vehicle on its launch position.
-3.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
+1.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
    
 
 .. _mready:
@@ -175,7 +175,7 @@ The typical content of the CSV file is shown below:
 Open the file with a spreadsheet program such as Microsoft Excel or Google Sheets.
 
 Select the data items you wish to graph, typically the ``Time-ms`` column on the x-axis, and the ``Y_Acc-m/sec2`` column on the y-axis 
-and then insert a scatter plot from among the **Recommended Charts**.
+and then **insert** a scatter plot from among the **Recommended Charts**.
 
 
 .. csvfile:
@@ -184,6 +184,8 @@ and then insert a scatter plot from among the **Recommended Charts**.
     :scale: 30%
 
     Y acceleration vs time scatter graph
+
+Format the chart as desired and useful for analysis, and then save as a spreadsheet on the computer (and not on the module).
 
 
 Copyright
