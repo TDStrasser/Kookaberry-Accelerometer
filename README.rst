@@ -1,8 +1,10 @@
 Kookaberry Accelerometer Module
 ===============================
 
-The accelerometer module is a lightweight circuit board, using a subset of **Kookaberry** hardware and **Kookaberry** firmware, 
-and is intended to be mounted on a moving vehicle to measure and record its acceleration in high resolution over short periods.
+The accelerometer module is a lightweight self-powered and rechargeable circuit board designed to be mounted on a moving vehicle to measure and record 
+its acceleration in high resolution over short periods.
+
+The module uses a subset of **Kookaberry** hardware and **Kookaberry** firmware.
 
 `What is Acceleration? <docs/What-is-Acceleration.pdf>`_
 
@@ -11,6 +13,9 @@ free-fall devices etc.  In short, on anything that is propelled or moved where i
 
 The mass (weight) of the circuit board has been minimised so that it does not overly reduce  acceleration.
 
+The rechargeable battery is soldered onto the board and thereby does not constitute hazard to small children. 
+Nevertheless, the module should not be within reach of or handled by small children.
+
 Description
 -----------
 
@@ -18,10 +23,10 @@ The Accelerometer Module is shown in the figures below.  Its key properties are:
 
 •	Dimensions: 60mm L x 26mm W x 12mm H (inclusive of jumpers)
 •	Weight: 10 grams (inclusive of battery)
-•	Power: soldered-in rechargeable 3.6V battery recharged via USB-C connector
+•	Power: soldered-in rechargeable 3.6V battery recharged via USB-C connector. 
 •	Power Switch: Jumpers next to battery - On – jumper in lower position; Off – jumper in upper
 •	Computing: Raspberry Pi RP2040 microcomputer and LSM303 3-axis accelerometer
-•	File Storage: 3.5 Mbytes presented as a USB-C removable memory stick
+•	File Storage: 3.5 Mbytes accessible by plugging into a PC in the same way as a USB-C removable memory stick
 •	Programmable User Interface: Pushbutton (SW1), Orange LED (LD1), Red LED (LD2)
 •	Programming: **KookaSuite** (**KookaBlockly**, **MicroPython**) or **Thonny** (MicroPython) via USB-C.
 
@@ -43,21 +48,12 @@ The Accelerometer Module is shown in the figures below.  Its key properties are:
 Software
 --------
 
-The Accelerometer Module comes pre-loaded with the **Kookaberry** firmware and AustSTEM’s AccelLog.py script which activates as soon as the power is turned on. 
+The Accelerometer Module comes pre-loaded with the **Kookaberry** firmware and **AustSTEM’s** AccelLog.py script which activates as soon as the power is turned on. 
 
 AccelLog MicroPython Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The AccelLog.py script measures and logs 3-axis acceleratins using the built-in accelerometer.
-
-The script starts and waits to be armed with the ORANGE LED ``ON``.
-
-Press the button to arm the logger - the ORANGE LED is ``OFF`` and the RED LED is ``ON``
-
-When armed the logger waits for high acceleration in any direction. 
-
-When triggered, acceleration is logged, by default, at 10mS intervals for 5 seconds. 
-The RED LED blinks during logging.  
+The AccelLog.py script measures and logs 3-axis accelerations using the built-in accelerometer.
 
 The default parameters can be altered by editing the key parameters at the beginning of the script.  
 Any MicroPython editor, particularly **KookaIDE** or **Thonny**, or even a simple text editor can be used.
@@ -104,7 +100,8 @@ Operation
 
 The sequence of operation is:
 
-1.	Mount the module securely on the vehicle whose acceleration is to be measured.
+1.	Mount the module securely on the vehicle whose acceleration is to be measured.  
+    The module's mounting must be strong enough to prevent it moving around or off the vehicle when acceleration occurs.
 2.	Place the vehicle on its launch position.
 3.  Switch the power on by moving the jumper next to the battery on the pins closest to white pushbutton.  The Red LED should illuminate.
    
@@ -136,9 +133,9 @@ The sequence of operation is:
 
     After the programmed duration recording stops and both Red and Orange LEDs will be on.
 
-6.	If desired, rearm the module by pressing the white button and relaunch the vehicle.
+6.	If further recordings are needed repeat the procedure from step 2.
 7.	When finished, switch the power off by moving the jumper to the upper position.
-8.	Connect the module to a PC via the USB-C connector and copy the desired files to your PC for inspection and processing.	
+8.	Connect the module to a PC via the USB-C connector and copy the CSV files to your PC for inspection and processing.	
     
     The files on the module should now be visible.
 
