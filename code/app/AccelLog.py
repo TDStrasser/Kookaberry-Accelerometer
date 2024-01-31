@@ -3,7 +3,7 @@ __name__ = 'AccelLog'
 # Copyright: The AustSTEM Foundation Limited
 # Author: Tony Strasser
 # Date created: 31 March 2021
-# Date last modified: 29 November 2023 - implement pre-acceleration recording buffer, bug-fixes
+# Date last modified: 31 January 2024 - added logging acceleration vector in polar coordinates
 # MicroPython Version: 1.20 for the Kookaberry RP2040 mini-accelerometer board
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ PERIOD = 10 # The period between samples in milliseconds
 THRESHOLD = 20 # The threshold acceleration in m/sec^2 which initiates logging when armed
 PRESAMPLES = 10 # The number of samples retained prior to reaching the recording threshhold
 
-import kooka, machine, os, re, json, time
+import kooka, machine, os, re, json, time, math
 
 # Set up the button class to keep track of button activity
 class Button:
@@ -65,7 +65,22 @@ class Button:
         
     def get_presses(self):
         return self.btn_count
-       
+
+# Division function avoids divide by zero errors
+def safe_div(num, den):
+    if den == 0:  den = 0.00001 # substitute a small positive value
+    return num / den
+
+# Function returns four quadrant arctan in degrees
+def atan4q(x,y):
+    compensator = 0 # The angle to add to the basic 2 quadrant arctan
+    if y < 0:  # quadrant 3 or 4
+        if x < 0: compensator = -180
+        else: compensator = 180
+    
+    return math.atan(safe_div(x,y)) * 180 / math.pi + compensator
+
+
 btn = Button('P1') # The control button on the board
 LD1 = machine.Pin('P4', machine.Pin.OUT) # Red LED
 LD1.value(0)
@@ -194,10 +209,18 @@ while True: # Runs forever
         run += 1    # Increase the run number
         fname = __name__ + '-%0.3d.csv' % run
         f = open(fname, 'w+')
-        f.write('Time-ms, X_Acc-m/sec2, Y_Acc-m/sec2, Z_Acc-m/sec2\n')   # write the heading line
+        f.write('Time-ms, X_Acc-m/sec2, Y_Acc-m/sec2, Z_Acc-m/sec2,Magnitude-m/sec2,Azimuth-deg,Inclination-deg\n')   # write the heading line
         for i in range(0, pre_samples): # First write the presampling data
-            f.write('%d,%0.2f,%0.2f,%0.2f\n' % (int(time.ticks_diff(pre_t[i], timer_zero)), pre_x[i], pre_y[i], pre_z[i]))
-#            f.write('%d,%0.2f,%0.2f,%0.2f\n' % (pre_t[i], pre_x[i], pre_y[i], pre_z[i]))
-        for i in range(0, acc_samples):
-            f.write('%d,%0.2f,%0.2f,%0.2f\n' % (int(time.ticks_diff(acc_t[i], timer_zero)), acc_x[i], acc_y[i], acc_z[i]))
+            mag = math.sqrt(pre_x[i]*pre_x[i] + pre_y[i]*pre_y[i] + pre_z[i]*pre_z[i]) # Acceleration vector magnitude
+            azimuth = atan4q(pre_x[i], pre_y[i]) # Acceleration azimuth wrt y-axis
+            incline = math.asin(safe_div(pre_z[i], mag)) * 180 / math.pi # Acceleration incline wrt x-y plane.
+            f.write('%d,%0.2f,%0.2f,%0.2f,%0.2f,%0.2f,%0.2f\n' % (int(time.ticks_diff(pre_t[i], timer_zero)), pre_x[i], pre_y[i], pre_z[i], mag, azimuth, incline))
+
+        for i in range(0, acc_samples): # Write the acceleration samples
+            mag = math.sqrt(acc_x[i]*acc_x[i] + acc_y[i]*acc_y[i] + acc_z[i]*acc_z[i]) # Acceleration vector magnitude
+            azimuth = atan4q(acc_x[i], acc_y[i])
+            incline = math.asin(safe_div(acc_z[i], mag)) * 180 / math.pi
+
+            f.write('%d,%0.2f,%0.2f,%0.2f,%0.2f,%0.2f,%0.2f\n' % (int(time.ticks_diff(acc_t[i], timer_zero)), acc_x[i], acc_y[i], acc_z[i], mag, azimuth, incline))
         f.close()
+
